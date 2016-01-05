@@ -63,7 +63,93 @@
         <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
     }
 </code></pre><p>Notice:</p><ul>
-<li><code>using namespace std;</code> — Use this, or else errors. Why? You’ll learn.</li><li>How input and output work.</li></ul><h4 id="booleans"><a name="booleans" href="#booleans"></a>Booleans</h4><p><code>bool</code> is a built in type in C++. Use it, it’s nice!<br>It lets you write <code>bool someBool = true;</code> or <code>bool someBool = false;</code>.<br>Nevertheless, C++ still lets you treat 0 as False, and non-zero as True (like in C).</p><h4 id="chars-and-strings"><a name="chars-and-strings" href="#chars-and-strings"></a>Chars and Strings</h4><p><strong>DONT USE <code>char*</code> WHEN YOU CAN AVOID IT</strong>.<br>C++ has a better built in string library!<br><strong>READ ABOUT THE C++ STRING LIBRARY. IT’S BALLER.</strong><br>There is a solid summary in the lecture slides.</p><h2 id="lecture-2"><a name="lecture-2" href="#lecture-2"></a>Lecture 2</h2>
+<li><code>using namespace std;</code> — Use this, or else errors. Why? You’ll learn.</li><li>How input and output work.</li></ul><h4 id="booleans"><a name="booleans" href="#booleans"></a>Booleans</h4><p><code>bool</code> is a built in type in C++. Use it, it’s nice!<br>It lets you write <code>bool someBool = true;</code> or <code>bool someBool = false;</code>.<br>Nevertheless, C++ still lets you treat 0 as False, and non-zero as True (like in C).</p><h4 id="chars-and-strings"><a name="chars-and-strings" href="#chars-and-strings"></a>Chars and Strings</h4><p><strong>DONT USE <code>char*</code> WHEN YOU CAN AVOID IT</strong>.<br>C++ has a better built in string library!</p><p>Here is a brief summary of it:</p><table>
+<thead>
+<tr>
+<th>Operation</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>+</code></td>
+<td>string catenation</td>
+</tr>
+<tr>
+<td><code>==, &lt;=, &lt;, etc.</code></td>
+<td>comparison    based    on    standard    lexical    ordering    </td>
+</tr>
+<tr>
+<td><code>s.length()</code></td>
+<td>number    of    chars    in    s        </td>
+</tr>
+<tr>
+<td><code>s.substr(i,n)</code></td>
+<td>substring    of    n    characters    starQng    at    index    i        </td>
+</tr>
+<tr>
+<td><code>s.substr(i)</code></td>
+<td>substr    starQng    at    index    i    and    ending    at    the    end    of    s        </td>
+</tr>
+<tr>
+<td><code>s.at(i)</code></td>
+<td>returns    ith char    (checked    access)        </td>
+</tr>
+<tr>
+<td><code>s[i]</code></td>
+<td>returns    ith    char    (unchecked    access)    </td>
+</tr>
+<tr>
+<td><code>s.c_str()</code></td>
+<td>returns    the    C-style    char*    equivalent    of    s        </td>
+</tr>
+<tr>
+<td><code>s.find(str, pos)</code></td>
+<td>return    first    index    of    str    in    s    starQng    at    or    aver    pos    **    </td>
+</tr>
+<tr>
+<td><code>s.rfind(str, pos)</code></td>
+<td>return    last    index    of    str    in    s    starQng    at    or    before    pos    **    </td>
+</tr>
+<tr>
+<td><code>s.replace(...)</code></td>
+<td>replace    chars    within    s        </td>
+</tr>
+<tr>
+<td><code>s.insert(...)</code></td>
+<td>insert    chars    within    s</td>
+</tr>
+</tbody>
+</table><p>** returns -1 if str is not found (technically, that’s string::npos)</p><p>Now, chars    have    a    dual    nature:    they’re    both    characters    AND    integers:    </p><ul>
+<li>When    you    use    the    “+”    operator    on    chars,    it    performs    integer<br>addiQon,    not    string    catenaQon.        </li><li>…    but    when    you    print    a    char,    you    get    the    character    not    the    integer.</li></ul><p>Take the following example code:</p><pre class="cpp hljs"><code class="cpp" data-origin="<pre><code class=&quot;cpp&quot;>    #include &amp;lt;iostream&amp;gt;
+    #include &amp;lt;string&amp;gt;
+    using namespace std;
+
+    int main (int argc, char* argv[]) {
+        cout &amp;lt;&amp;lt; &quot;m&quot; &amp;lt;&amp;lt; endl;                       // m
+        cout &amp;lt;&amp;lt; 'm' &amp;lt;&amp;lt; endl;                       // m
+        cout &amp;lt;&amp;lt; (int) 'm' &amp;lt;&amp;lt; endl;                 // 109
+        cout &amp;lt;&amp;lt; &quot;m&quot; + &quot;g&quot; &amp;lt;&amp;lt; endl;                 // Won't compile.
+        cout &amp;lt;&amp;lt; (string)&quot;m&quot; + (string)&quot;g&quot; &amp;lt;&amp;lt; endl; // mg
+        cout &amp;lt;&amp;lt; (string) &quot;m&quot; + 'g' &amp;lt;&amp;lt; endl;        // mg
+        cout &amp;lt;&amp;lt; 'm' + 'g' &amp;lt;&amp;lt; endl;                 // 212=109+103
+        return 0;
+    }
+</code></pre>">    <span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> &lt;iostream&gt;</span>
+    <span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> &lt;string&gt;</span>
+    <span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;
+
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span> <span class="hljs-params">(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span>* argv[])</span> </span>{
+        <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"m"</span> &lt;&lt; endl;                       <span class="hljs-comment">// m</span>
+        <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">'m'</span> &lt;&lt; endl;                       <span class="hljs-comment">// m</span>
+        <span class="hljs-built_in">cout</span> &lt;&lt; (<span class="hljs-keyword">int</span>) <span class="hljs-string">'m'</span> &lt;&lt; endl;                 <span class="hljs-comment">// 109</span>
+        <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"m"</span> + <span class="hljs-string">"g"</span> &lt;&lt; endl;                 <span class="hljs-comment">// Won't compile.</span>
+        <span class="hljs-built_in">cout</span> &lt;&lt; (<span class="hljs-built_in">string</span>)<span class="hljs-string">"m"</span> + (<span class="hljs-built_in">string</span>)<span class="hljs-string">"g"</span> &lt;&lt; endl; <span class="hljs-comment">// mg</span>
+        <span class="hljs-built_in">cout</span> &lt;&lt; (<span class="hljs-built_in">string</span>) <span class="hljs-string">"m"</span> + <span class="hljs-string">'g'</span> &lt;&lt; endl;        <span class="hljs-comment">// mg</span>
+        <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">'m'</span> + <span class="hljs-string">'g'</span> &lt;&lt; endl;                 <span class="hljs-comment">// 212=109+103</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+    }
+</code></pre><h2 id="lecture-2"><a name="lecture-2" href="#lecture-2"></a>Lecture 2</h2>
 
 <footer style="position:fixed; font-size:.8em; text-align:right; bottom:0px; margin-left:-25px; height:20px; width:100%;">generated by <a href="http://pad.haroopress.com" target="_blank">haroopad</a></footer>
 </body>

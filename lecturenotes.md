@@ -77,9 +77,48 @@ Nevertheless, C\++ still lets you treat 0 as False, and non-zero as True (like i
 #### Chars and Strings
 **DONT USE `char*` WHEN YOU CAN AVOID IT**.
 C\++ has a better built in string library!
-**READ ABOUT THE C\++ STRING LIBRARY. IT'S BALLER.**
-There is a solid summary in the lecture slides.
+
+Here is a brief summary of it:
+
+Operation|What it does
+--|--
+`+` | string catenation
+`==, <=, <, etc.	` |comparison	based	on	standard	lexical	ordering	
+`s.length()` 	 |	number	of	chars	in	s		
+`s.substr(i,n)`|substring	of	n	characters	starQng	at	index	i		
+`s.substr(i)` |substr	starQng	at	index	i	and	ending	at	the	end	of	s		
+`s.at(i)` 	|		returns	ith char	(checked	access)		
+`s[i]` 	|			returns	ith	char	(unchecked	access)	
+`s.c_str()` 	| 	returns	the	C-style	char*	equivalent	of	s		
+`s.find(str, pos)`| return	first	index	of	str	in	s	starQng	at	or	aver	pos	\**	
+`s.rfind(str, pos)` |return	last	index	of	str	in	s	starQng	at	or	before	pos	\**	
+`s.replace(...)` |replace	chars	within	s		
+`s.insert(...)`| insert	chars	within	s
+
+\** returns -1 if str is not found (technically, that's string::npos)
+
+Now, chars	have	a	dual	nature:	they're	both	characters	AND	integers:	
+- When	you	use	the	"+"	operator	on	chars,	it	performs	integer	
+addiQon,	not	string	catenaQon.		
+- …	but	when	you	print	a	char,	you	get	the	character	not	the	integer.
+
+Take the following example code:
+
+```cpp
+    #include <iostream>
+    #include <string>
+    using namespace std;
+
+    int main (int argc, char* argv[]) {
+        cout << "m" << endl;                       // m
+        cout << 'm' << endl;                       // m
+        cout << (int) 'm' << endl;                 // 109
+        cout << "m" + "g" << endl;                 // Won't compile.
+        cout << (string)"m" + (string)"g" << endl; // mg
+        cout << (string) "m" + 'g' << endl;        // mg
+        cout << 'm' + 'g' << endl;                 // 212=109+103
+        return 0;
+    }
+```
 
 ## Lecture 2
-
-
