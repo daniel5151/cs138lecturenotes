@@ -7,7 +7,7 @@
 ###### Email: migod@uwaterloo.ca
 ###### Office Hours: Thursdays from 11:30 to 12:30 in DC2340
 
-#### TA: Tim Yatayev
+#### TA: Tim Vataev
 ###### Email: cs138@uwaterloo.ca
 ###### Office Hours: TBA
 
