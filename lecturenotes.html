@@ -10,7 +10,7 @@
 </head>
 <body class="markdown clearness">
 <h1 id=""><a name="" href="#"></a> </h1><h1 style="margin:auto">CS-138 Introduction to Data Abstraction</h1><br><h1 style="margin:auto">Notes by Daniel Prilik</h1><br><h1 style="margin:auto">Software Engineering 2020</h1><h4 id="prof:-mike-godfrey"><a name="prof:-mike-godfrey" href="#prof:-mike-godfrey"></a>Prof: Mike Godfrey</h4><h6 id="email:-migod@uwaterloo.ca"><a name="email:-migod@uwaterloo.ca" href="#email:-migod@uwaterloo.ca"></a>Email: migod@uwaterloo.ca</h6><h6 id="office-hours:-thursdays-from-11:30-to-12:30-in-dc2340"><a name="office-hours:-thursdays-from-11:30-to-12:30-in-dc2340" href="#office-hours:-thursdays-from-11:30-to-12:30-in-dc2340"></a>Office Hours: Thursdays from 11:30 to 12:30 in DC2340</h6><h4 id="ta:-tim-yatayev"><a name="ta:-tim-yatayev" href="#ta:-tim-yatayev"></a>TA: Tim Yatayev</h4><h6 id="email:-cs138@uwaterloo.ca"><a name="email:-cs138@uwaterloo.ca" href="#email:-cs138@uwaterloo.ca"></a>Email: cs138@uwaterloo.ca</h6><h6 id="office-hours:-tba"><a name="office-hours:-tba" href="#office-hours:-tba"></a>Office Hours: TBA</h6><h2 id="lecture-1---jan-6th"><a name="lecture-1---jan-6th" href="#lecture-1---jan-6th"></a>Lecture 1 - Jan 6th</h2><h3 id="introduction"><a name="introduction" href="#introduction"></a>Introduction</h3><p>Lots of Boilerplate, nothing seriously relevant.</p><h3 id="c++-boot-camp"><a name="c++-boot-camp" href="#c++-boot-camp"></a>C++ Boot Camp</h3><p>This course doesn’t teach you C++. It teaches you how to make things with C++.</p><p>Nevertheless, it’s still important to know the language, so this is a short summary of what’s changed / been added from C.</p><h4 id="class-vs.-struct"><a name="class-vs.-struct" href="#class-vs.-struct"></a>Class vs. Struct</h4><p>Same thing, but <em>Structs</em> have all their elements <strong>Public</strong> by default, and <em>Classes</em> have all their elements <strong>Private</strong> by default.</p><p>Structs are better from procedural programming, Classes are mainly for OOP.</p><p>Also, don’t mix and match (even though you can).</p><h4 id="style-considerations:"><a name="style-considerations:" href="#style-considerations:"></a>Style considerations:</h4><ul>
-<li>Readability is important. One liners may look cool, but they aren’t really readable.</li><li>Use for loops over while loops most of the time.</li><li>Use curly braces, even when you don’t need to (single liners).</li><li>Testing infrastructure is important.</li></ul><h4 id="sample-code"><a name="sample-code" href="#sample-code"></a>Sample Code</h4><h4 id="*first.cpp*"><a name="*first.cpp*" href="#*first.cpp*"></a><em>first.cpp</em></h4><pre class="cpp hljs"><code class="cpp" data-origin="<pre><code class=&quot;cpp&quot;>    #include &amp;lt;iostream&amp;gt;
+<li>Readability is important. One liners may look cool, but they aren’t really readable.</li><li>Use for loops over while loops most of the time.</li><li>Use curly braces, even when you don’t need to (single liners).</li><li>Testing infrastructure is important.</li></ul><h4 id="sample-code"><a name="sample-code" href="#sample-code"></a>Sample Code</h4><h4 id="*first.cc*"><a name="*first.cc*" href="#*first.cc*"></a><em>first.cc</em></h4><pre class="cpp hljs"><code class="cpp" data-origin="<pre><code class=&quot;cpp&quot;>    #include &amp;lt;iostream&amp;gt;
     #include &amp;lt;string&amp;gt;
 
     using namespace std;
@@ -123,6 +123,7 @@
 </table><p>** returns -1 if str is not found (technically, that’s string::npos)</p><p>Now, chars    have    a    dual    nature:    they’re    both    characters    AND    integers:    </p><ul>
 <li>When    you    use    the    “+”    operator    on    chars,    it    performs    integer<br>addiQon,    not    string    catenaQon.        </li><li>…    but    when    you    print    a    char,    you    get    the    character    not    the    integer.</li></ul><p>Take the following example code:</p><pre class="cpp hljs"><code class="cpp" data-origin="<pre><code class=&quot;cpp&quot;>    #include &amp;lt;iostream&amp;gt;
     #include &amp;lt;string&amp;gt;
+
     using namespace std;
 
     int main (int argc, char* argv[]) {
@@ -130,13 +131,14 @@
         cout &amp;lt;&amp;lt; 'm' &amp;lt;&amp;lt; endl;                       // m
         cout &amp;lt;&amp;lt; (int) 'm' &amp;lt;&amp;lt; endl;                 // 109
         cout &amp;lt;&amp;lt; &quot;m&quot; + &quot;g&quot; &amp;lt;&amp;lt; endl;                 // Won't compile.
-        cout &amp;lt;&amp;lt; (string)&quot;m&quot; + (string)&quot;g&quot; &amp;lt;&amp;lt; endl; // mg
+        cout &amp;lt;&amp;lt; (string) &quot;m&quot; + (string)&quot;g&quot; &amp;lt;&amp;lt; endl; // mg
         cout &amp;lt;&amp;lt; (string) &quot;m&quot; + 'g' &amp;lt;&amp;lt; endl;        // mg
         cout &amp;lt;&amp;lt; 'm' + 'g' &amp;lt;&amp;lt; endl;                 // 212=109+103
         return 0;
     }
 </code></pre>">    <span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> &lt;iostream&gt;</span>
     <span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> &lt;string&gt;</span>
+
     <span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;
 
     <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span> <span class="hljs-params">(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span>* argv[])</span> </span>{
@@ -144,12 +146,488 @@
         <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">'m'</span> &lt;&lt; endl;                       <span class="hljs-comment">// m</span>
         <span class="hljs-built_in">cout</span> &lt;&lt; (<span class="hljs-keyword">int</span>) <span class="hljs-string">'m'</span> &lt;&lt; endl;                 <span class="hljs-comment">// 109</span>
         <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"m"</span> + <span class="hljs-string">"g"</span> &lt;&lt; endl;                 <span class="hljs-comment">// Won't compile.</span>
-        <span class="hljs-built_in">cout</span> &lt;&lt; (<span class="hljs-built_in">string</span>)<span class="hljs-string">"m"</span> + (<span class="hljs-built_in">string</span>)<span class="hljs-string">"g"</span> &lt;&lt; endl; <span class="hljs-comment">// mg</span>
+        <span class="hljs-built_in">cout</span> &lt;&lt; (<span class="hljs-built_in">string</span>) <span class="hljs-string">"m"</span> + (<span class="hljs-built_in">string</span>)<span class="hljs-string">"g"</span> &lt;&lt; endl; <span class="hljs-comment">// mg</span>
         <span class="hljs-built_in">cout</span> &lt;&lt; (<span class="hljs-built_in">string</span>) <span class="hljs-string">"m"</span> + <span class="hljs-string">'g'</span> &lt;&lt; endl;        <span class="hljs-comment">// mg</span>
         <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">'m'</span> + <span class="hljs-string">'g'</span> &lt;&lt; endl;                 <span class="hljs-comment">// 212=109+103</span>
         <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
     }
-</code></pre><h2 id="lecture-2"><a name="lecture-2" href="#lecture-2"></a>Lecture 2</h2>
+</code></pre><h2 id="lecture-2---jan-7th"><a name="lecture-2---jan-7th" href="#lecture-2---jan-7th"></a>Lecture 2 - Jan 7th</h2><h3 id="command-line-arguments"><a name="command-line-arguments" href="#command-line-arguments"></a>Command Line Arguments</h3><p>If <code>main</code> is given the arguments <code>(int argc, char* argv[])</code>, the OS will automagically fill them in with the command line arguments to the program!</p><ul>
+<li><code>argc</code> is an <code>int</code> on the number of arguments given to the program<ul>
+<li>minimum of one, as <code>argv[]</code> always contains at least the call of the program itself</li></ul>
+</li><li><code>argv</code> is an array of c-strings that correspond to the given command line arguments.</li></ul><h4 id="*argfun.cc*"><a name="*argfun.cc*" href="#*argfun.cc*"></a><em>argfun.cc</em></h4><pre class="cpp hljs"><code class="cpp" data-origin="<pre><code class=&quot;cpp&quot;>    // Try running this with different #s of command-line args
+    #include &amp;lt;iostream&amp;gt;
+    #include &amp;lt;string&amp;gt;
+
+    using namespace std;
+
+    int main (int argc, char* argv[]) {
+        cout &amp;lt;&amp;lt; &quot;argc = &quot; &amp;lt;&amp;lt; argc &amp;lt;&amp;lt; endl;
+
+        for (int i=0; i&amp;lt;argc; i++) {
+            cout &amp;lt;&amp;lt; &quot;argv[&quot; &amp;lt;&amp;lt; i &amp;lt;&amp;lt; &quot;] = \&quot;&quot; &amp;lt;&amp;lt; argv[i] &amp;lt;&amp;lt; &quot;\&quot;\n&quot;;
+        }
+        // Now some goofing around … string vs. char*
+        string s = argv[0]; // implicit type conversion
+        cout &amp;lt;&amp;lt; &quot;as a string: &quot; &amp;lt;&amp;lt; s &amp;lt;&amp;lt; endl;
+        s += &quot; hi mom&quot;;
+
+        // c_str returns const char* by default, so
+        // must cast to char* to send back to argv[0]
+        argv[0] = (char*) s.c_str();
+        cout &amp;lt;&amp;lt; &quot;argv[0] = &quot; &amp;lt;&amp;lt; argv[0] &amp;lt;&amp;lt; endl;
+
+        return 0;
+    }
+</code></pre>">    <span class="hljs-comment">// Try running this with different #s of command-line args</span>
+    <span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> &lt;iostream&gt;</span>
+    <span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> &lt;string&gt;</span>
+
+    <span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;
+
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span> <span class="hljs-params">(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span>* argv[])</span> </span>{
+        <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"argc = "</span> &lt;&lt; argc &lt;&lt; endl;
+
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>; i&lt;argc; i++) {
+            <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"argv["</span> &lt;&lt; i &lt;&lt; <span class="hljs-string">"] = \""</span> &lt;&lt; argv[i] &lt;&lt; <span class="hljs-string">"\"\n"</span>;
+        }
+        <span class="hljs-comment">// Now some goofing around … string vs. char*</span>
+        <span class="hljs-built_in">string</span> s = argv[<span class="hljs-number">0</span>]; <span class="hljs-comment">// implicit type conversion</span>
+        <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"as a string: "</span> &lt;&lt; s &lt;&lt; endl;
+        s += <span class="hljs-string">" hi mom"</span>;
+
+        <span class="hljs-comment">// c_str returns const char* by default, so</span>
+        <span class="hljs-comment">// must cast to char* to send back to argv[0]</span>
+        argv[<span class="hljs-number">0</span>] = (<span class="hljs-keyword">char</span>*) s.c_str();
+        <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"argv[0] = "</span> &lt;&lt; argv[<span class="hljs-number">0</span>] &lt;&lt; endl;
+
+        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+    }
+</code></pre><p>Notice that there is a magical type conversion when doing something such as <code>string s = argv[0]</code>. C++ will automagically convert <code>argv</code>‘s into strings (NOT OTHER C-STRINGS!).</p><h3 id="simple-io"><a name="simple-io" href="#simple-io"></a>Simple IO</h3><p><code>#include &lt;iostream&gt;</code> gives you access to 3 streams:</p><ul>
+<li><code>cin</code> - Standard Input</li><li><code>cout</code> - Standard Output</li><li><code>cerr</code> - Standard Error</li></ul><p>The <code>&lt;&lt;</code> operator is for Output, and <code>&gt;&gt;</code> is for Input.<br>These are overloaded operators in respect to these streams (i.e they have other uses in other contexts (like bitshifting and such)).</p><p>Here is a quick example of basic IO:</p><pre class="cpp hljs"><code class="cpp" data-origin="<pre><code class=&quot;cpp&quot;>    #include &amp;lt;iostream&amp;gt;
+    #include &amp;lt;string&amp;gt;
+
+    using namespace std;
+
+    int main (int argc, char* argv[]){
+        cout &amp;lt;&amp;lt; &quot;Hello world!&quot; &amp;lt;&amp;lt; endl;
+        cout &amp;lt;&amp;lt; &quot;pi is approx. &quot; &amp;lt;&amp;lt; 22/double(7) &amp;lt;&amp;lt; endl;
+
+        string name;
+        int age;
+
+        cout &amp;lt;&amp;lt; &quot;What's your name and age? &quot;;
+
+        cin &amp;gt;&amp;gt; name &amp;gt;&amp;gt; age; // reads next two input tokens
+
+        if (age &amp;lt; 0) {
+            cerr &amp;lt;&amp;lt; &quot;Error, age must be non-negative.\n&quot;;
+        } else {
+            cout &amp;lt;&amp;lt; &quot;So, &quot; &amp;lt;&amp;lt; name &amp;lt;&amp;lt; &quot;, how's being &quot; &amp;lt;&amp;lt; age &amp;lt;&amp;lt; &quot; like?&quot;;
+        }
+
+        return 0;
+    }
+</code></pre>">    <span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> &lt;iostream&gt;</span>
+    <span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> &lt;string&gt;</span>
+
+    <span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;
+
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span> <span class="hljs-params">(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span>* argv[])</span></span>{
+        <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"Hello world!"</span> &lt;&lt; endl;
+        <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"pi is approx. "</span> &lt;&lt; <span class="hljs-number">22</span>/<span class="hljs-keyword">double</span>(<span class="hljs-number">7</span>) &lt;&lt; endl;
+
+        <span class="hljs-built_in">string</span> name;
+        <span class="hljs-keyword">int</span> age;
+
+        <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"What's your name and age? "</span>;
+
+        <span class="hljs-built_in">cin</span> &gt;&gt; name &gt;&gt; age; <span class="hljs-comment">// reads next two input tokens</span>
+
+        <span class="hljs-keyword">if</span> (age &lt; <span class="hljs-number">0</span>) {
+            <span class="hljs-built_in">cerr</span> &lt;&lt; <span class="hljs-string">"Error, age must be non-negative.\n"</span>;
+        } <span class="hljs-keyword">else</span> {
+            <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"So, "</span> &lt;&lt; name &lt;&lt; <span class="hljs-string">", how's being "</span> &lt;&lt; age &lt;&lt; <span class="hljs-string">" like?"</span>;
+        }
+
+        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+    }
+</code></pre><h3 id="formatted-output"><a name="formatted-output" href="#formatted-output"></a>Formatted Output</h3><p>Just google it.<br>There are many ways to do it.<br>Take your pick.</p><p>You don’t need any text formatting libs for assignment 1 by the way.</p><h3 id="reading-input"><a name="reading-input" href="#reading-input"></a>Reading Input</h3><p>To read single tokens, just use <code>cin &gt;&gt; foo</code>.<br>This will discard whitespace (spaces, tabs, newlines), and only return tokens.</p><p>To read full lines, use <code>string s; getline(cin, s)</code>.<br>This will read full lines into s.</p><p>A few notes about <code>getline</code>:</p><ul>
+<li>You’ll    have    to    parse    the    input    string    yourself    (e.g.,    line.find(…)) to extract tokens.</li><li>The    newline    char    is    removed    from    the    input    stream    but    <strong>NOT</strong>    stored    in the    variable    line.</li><li><code>getline</code>    works    with    other    kinds    of    input    streams    too,    not    just    cin!</li></ul><h3 id="how-to-detect-end-of-input"><a name="how-to-detect-end-of-input" href="#how-to-detect-end-of-input"></a>How to detect end of input</h3><p>1) The old way was to be given the ammount of data to be read, and manually keep track of that. But that sucks.</p><p>2) Using a dummy variable and seeing if anything has been read to it (also kind of sucks)</p><p><strong>3)</strong> Use <code>cin.fail()</code> or <code>cin.eof()</code>, flags which are automatically set on reaching the end of the file.</p><pre class="cpp hljs"><code class="cpp" data-origin="<pre><code class=&quot;cpp&quot;>    #include &amp;lt;iostream&amp;gt;
+
+    using namespace std;
+
+    int main (int argc, char* argv[]) {
+        double sum = 0;
+        int count = 0;
+        while (true) {
+            double next;
+            cin &amp;gt;&amp;gt; next;
+            if (cin.fail()) { // or cin.eof()
+                break;
+            }
+            sum += next;
+            count++;
+        }
+        if (count &amp;gt; 0){
+            cout &amp;lt;&amp;lt; &quot;Avg is &quot; &amp;lt;&amp;lt; sum/count &amp;lt;&amp;lt; endl;
+        }
+        return 0;
+    }
+</code></pre>">    <span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> &lt;iostream&gt;</span>
+
+    <span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;
+
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span> <span class="hljs-params">(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span>* argv[])</span> </span>{
+        <span class="hljs-keyword">double</span> sum = <span class="hljs-number">0</span>;
+        <span class="hljs-keyword">int</span> count = <span class="hljs-number">0</span>;
+        <span class="hljs-keyword">while</span> (<span class="hljs-keyword">true</span>) {
+            <span class="hljs-keyword">double</span> next;
+            <span class="hljs-built_in">cin</span> &gt;&gt; next;
+            <span class="hljs-keyword">if</span> (<span class="hljs-built_in">cin</span>.fail()) { <span class="hljs-comment">// or cin.eof()</span>
+                <span class="hljs-keyword">break</span>;
+            }
+            sum += next;
+            count++;
+        }
+        <span class="hljs-keyword">if</span> (count &gt; <span class="hljs-number">0</span>){
+            <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"Avg is "</span> &lt;&lt; sum/count &lt;&lt; endl;
+        }
+        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+    }
+</code></pre><p><strong>Subtle    detail:</strong>        eof()/fail()    don’t    return    true    <em>until    you’ve tried    to    go    one    step    too    far!</em><br>You    need    to    check    right    after    an    attempted    read, but    before using    the    variable    you    tried    to    read    into (as done in the code above)</p><p><strong>4)</strong> A slightly more idomatic approach:</p><pre class="cpp hljs"><code class="cpp" data-origin="<pre><code class=&quot;cpp&quot;>    #include &amp;lt;iostream&amp;gt;
+
+    using namespace std;
+
+    int main (int argc, char* argv[]) {
+        double sum = 0;
+        int count = 0;
+
+        double next;
+        while (cin &amp;gt;&amp;gt; next) { // shoter, but kind of obtuse...
+            sum += next;
+            count++;
+        }
+        if (count &amp;gt; 0){
+            cout &amp;lt;&amp;lt; &quot;Avg is &quot; &amp;lt;&amp;lt; sum/count &amp;lt;&amp;lt; endl;
+        }
+        return 0;
+    }
+</code></pre>">    <span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> &lt;iostream&gt;</span>
+
+    <span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;
+
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span> <span class="hljs-params">(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span>* argv[])</span> </span>{
+        <span class="hljs-keyword">double</span> sum = <span class="hljs-number">0</span>;
+        <span class="hljs-keyword">int</span> count = <span class="hljs-number">0</span>;
+
+        <span class="hljs-keyword">double</span> next;
+        <span class="hljs-keyword">while</span> (<span class="hljs-built_in">cin</span> &gt;&gt; next) { <span class="hljs-comment">// shoter, but kind of obtuse...</span>
+            sum += next;
+            count++;
+        }
+        <span class="hljs-keyword">if</span> (count &gt; <span class="hljs-number">0</span>){
+            <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"Avg is "</span> &lt;&lt; sum/count &lt;&lt; endl;
+        }
+        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+    }
+</code></pre><h3 id="reading-and-writing-to-files-directly"><a name="reading-and-writing-to-files-directly" href="#reading-and-writing-to-files-directly"></a>Reading and Writing to files directly</h3><p><code>#inlcude &lt;fstream&gt;</code> allows you to set up filestreams.<br>After setting up the file, the stream variable is used <strong>equivalently to <code>cin</code> / <code>cout</code></strong></p><p>Here is a quick example that copies the words from one file into another, adding “lmao” to each word.</p><h4 id="*ayllmao.cpp*"><a name="*ayllmao.cpp*" href="#*ayllmao.cpp*"></a><em>ayllmao.cpp</em></h4><pre class="cpp hljs"><code class="cpp" data-origin="<pre><code class=&quot;cpp&quot;>    #inlcude &amp;lt;fstream&amp;gt;
+    #include &amp;lt;iostream&amp;gt;
+
+    int main() {
+        string filename = &quot;in.txt&quot;;
+
+        ifstream is_intxt (filename); 
+        // Do note that the line above
+        // implicitly calls is_txt.open(filename) at
+        // construction
+
+        if (!is_intxt) {
+            cerr &amp;lt;&amp;lt; &quot;Can't open file!&quot; &amp;lt;&amp;lt; endl;
+            return 0;
+        }
+
+        ofstream os_outtxt (&quot;out.txt&quot;);
+        // should also check, but YOLO
+
+        string word;
+        while (is_intxt &amp;gt;&amp;gt; word) {
+            os_outtxt &amp;lt;&amp;lt; word &amp;lt;&amp;lt; &quot;lmao&quot; &amp;lt;&amp;lt; endl;
+        }
+
+        is_intxt.close()
+        os_outtxt.close()
+    }
+</code></pre>">    <span class="hljs-preprocessor">#inlcude &lt;fstream&gt;</span>
+    <span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> &lt;iostream&gt;</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-built_in">string</span> filename = <span class="hljs-string">"in.txt"</span>;
+
+        <span class="hljs-function">ifstream <span class="hljs-title">is_intxt</span> <span class="hljs-params">(filename)</span></span>; 
+        <span class="hljs-comment">// Do note that the line above</span>
+        <span class="hljs-comment">// implicitly calls is_txt.open(filename) at</span>
+        <span class="hljs-comment">// construction</span>
+
+        <span class="hljs-keyword">if</span> (!is_intxt) {
+            <span class="hljs-built_in">cerr</span> &lt;&lt; <span class="hljs-string">"Can't open file!"</span> &lt;&lt; endl;
+            <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+        }
+
+        <span class="hljs-function">ofstream <span class="hljs-title">os_outtxt</span> <span class="hljs-params">("out.txt")</span></span>;
+        <span class="hljs-comment">// should also check, but YOLO</span>
+
+        <span class="hljs-built_in">string</span> word;
+        <span class="hljs-keyword">while</span> (is_intxt &gt;&gt; word) {
+            os_outtxt &lt;&lt; word &lt;&lt; <span class="hljs-string">"lmao"</span> &lt;&lt; endl;
+        }
+
+        is_intxt.close()
+        os_outtxt.close()
+    }
+</code></pre><p>Here is an example showing all of the many inputs and outputs one can access:</p><pre class="cpp hljs"><code class="cpp" data-origin="<pre><code class=&quot;cpp&quot;>    // Example adapted from Adam Roegiest
+    #include&amp;lt;string&amp;gt;
+    #include&amp;lt;iostream&amp;gt;
+    #include&amp;lt;fstream&amp;gt;
+
+    using namespace std;
+
+    void printAnswer (ostream &amp;amp; output, string answer){
+        output &amp;lt;&amp;lt; &quot;The answer is &quot; &amp;lt;&amp;lt; answer &amp;lt;&amp;lt; endl;
+    }
+
+    int main (int argc, char* argv[]) {
+        printAnswer (cout, &quot;42&quot;);
+        printAnswer (cerr, &quot;clean living&quot;);
+        ofstream myout(&quot;foo.txt&quot;);
+        if (myout) {
+            // print to the file now
+            printAnswer (myout, &quot;blowing in the wind&quot;);
+        }
+        return 0;
+    }
+</code></pre>">    <span class="hljs-comment">// Example adapted from Adam Roegiest</span>
+    <span class="hljs-preprocessor">#<span class="hljs-keyword">include</span>&lt;string&gt;</span>
+    <span class="hljs-preprocessor">#<span class="hljs-keyword">include</span>&lt;iostream&gt;</span>
+    <span class="hljs-preprocessor">#<span class="hljs-keyword">include</span>&lt;fstream&gt;</span>
+
+    <span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;
+
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">printAnswer</span> <span class="hljs-params">(ostream &amp; output, <span class="hljs-built_in">string</span> answer)</span></span>{
+        output &lt;&lt; <span class="hljs-string">"The answer is "</span> &lt;&lt; answer &lt;&lt; endl;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span> <span class="hljs-params">(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span>* argv[])</span> </span>{
+        printAnswer (<span class="hljs-built_in">cout</span>, <span class="hljs-string">"42"</span>);
+        printAnswer (<span class="hljs-built_in">cerr</span>, <span class="hljs-string">"clean living"</span>);
+        <span class="hljs-function">ofstream <span class="hljs-title">myout</span><span class="hljs-params">("foo.txt")</span></span>;
+        <span class="hljs-keyword">if</span> (myout) {
+            <span class="hljs-comment">// print to the file now</span>
+            printAnswer (myout, <span class="hljs-string">"blowing in the wind"</span>);
+        }
+        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+    }
+</code></pre><h3 id="arrays-in-c\++"><a name="arrays-in-c\++" href="#arrays-in-c\++"></a>Arrays in C++</h3><p>C++ arrays are nearly identical to C arrays.<br>Use them as such.<br>If interested, look up the differences, but i’m not getting into C++ arrays because most of the time, it’s easier to just use…</p><h3 id="vectors!"><a name="vectors!" href="#vectors!"></a>Vectors!</h3><p><code>#inlcude &lt;vector&gt;</code> gives you access to the magical <code>vector&lt;T&gt;</code> data structure!<br>Vectors are essentially <strong>Dynamic Arrays!</strong> (but they still only hold one data type).</p><p><strong>Advantages</strong>    over    using    an    C-style    array:            </p><ul>
+<li>Declared    size    can    be    an    integer    variable,    not    just    a    compile-time constant</li><li>Safe    accessing    (bounds    checking)    via    <code>at()</code></li><li>Can    ask    for    size    via    <code>size()</code></li></ul><p>But, as with all good things, there are some <strong>Disadvantages</strong>:</p><ul>
+<li>Bounds    checking    can    slow    access    (but    you    don’t    have    to    use    it)</li><li>Very    mild    space    overhead    to    use    an    object.</li></ul><p>BUT, if you know that you won’t be growing / shrinking the array, then just use    the    <strong>C++11    array    class</strong> instead.</p><p>Vectors really shine when being used to implement a <strong>Stack</strong>.<br>Briefly, a stack is a data structure where you can <strong>push</strong> elements to the “top” of the stack, and <strong>pop</strong> elements off the “top”</p><p>Check out this example code:</p><h4 id="*vectors.cpp*"><a name="*vectors.cpp*" href="#*vectors.cpp*"></a><em>vectors.cpp</em></h4><pre class="cpp hljs"><code class="cpp" data-origin="<pre><code class=&quot;cpp&quot;>    #include &amp;lt;iostream&amp;gt;
+    #include &amp;lt;vector&amp;gt;
+
+    using namespace std;
+
+    int main() {
+        vector&amp;lt;int&amp;gt; v;
+        for (int i = 0; i &amp;lt; 10; i++) {
+            cout &amp;lt;&amp;lt; &quot;size = &quot; &amp;lt;&amp;lt; v.size()
+                 &amp;lt;&amp;lt; &quot; capacity = &quot; &amp;lt;&amp;lt; v.capacity() &amp;lt;&amp;lt; endl;
+            v.push_back(i);
+        }
+        while (v.size() != 0) {
+            int i = v.back();
+            cout &amp;lt;&amp;lt; &quot;Popping &quot; &amp;lt;&amp;lt; i &amp;lt;&amp;lt; endl;
+            v.pop_back();
+        }
+        return 0;
+    }
+</code></pre>">    <span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> &lt;iostream&gt;</span>
+    <span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> &lt;vector&gt;</span>
+
+    <span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;
+
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; v;
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">10</span>; i++) {
+            <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"size = "</span> &lt;&lt; v.size()
+                 &lt;&lt; <span class="hljs-string">" capacity = "</span> &lt;&lt; v.capacity() &lt;&lt; endl;
+            v.push_back(i);
+        }
+        <span class="hljs-keyword">while</span> (v.size() != <span class="hljs-number">0</span>) {
+            <span class="hljs-keyword">int</span> i = v.back();
+            <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"Popping "</span> &lt;&lt; i &lt;&lt; endl;
+            v.pop_back();
+        }
+        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+    }
+</code></pre><p>Output:</p><pre><code data-origin="<pre><code>    size = 0 capacity = 0
+    size = 1 capacity = 1
+    size = 2 capacity = 2
+    size = 3 capacity = 4
+    size = 4 capacity = 4
+    size = 5 capacity = 8
+    size = 6 capacity = 8
+    size = 7 capacity = 8
+    size = 8 capacity = 8
+    size = 9 capacity = 16
+    Popping 9
+    Popping 8
+    Popping 7
+    Popping 6
+    Popping 5
+    Popping 4
+    Popping 3
+    Popping 2
+    Popping 1
+    Popping 0
+</code></pre>">    size = 0 capacity = 0
+    size = 1 capacity = 1
+    size = 2 capacity = 2
+    size = 3 capacity = 4
+    size = 4 capacity = 4
+    size = 5 capacity = 8
+    size = 6 capacity = 8
+    size = 7 capacity = 8
+    size = 8 capacity = 8
+    size = 9 capacity = 16
+    Popping 9
+    Popping 8
+    Popping 7
+    Popping 6
+    Popping 5
+    Popping 4
+    Popping 3
+    Popping 2
+    Popping 1
+    Popping 0
+</code></pre><p>Here is a small table of important bits of the vector API:</p><table>
+<thead>
+<tr>
+<th>Operation</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>v.at(i)</strong></td>
+<td>returns    i<sup>th</sup> element    (index    checked)        </td>
+</tr>
+<tr>
+<td><strong>v[i]</strong></td>
+<td>returns    i<sup>th</sup>    element    (index    unchecked)</td>
+</tr>
+<tr>
+<td><strong>v.size()</strong></td>
+<td>returns    #    of    elements    v    has        </td>
+</tr>
+<tr>
+<td>v.capacity()</td>
+<td>returns    #    of    elements    v    currently    has    space    for        </td>
+</tr>
+<tr>
+<td>v.empty()</td>
+<td>returns    true    iff    v    has    no    elements        </td>
+</tr>
+<tr>
+<td>v.resize(int)</td>
+<td>reset    size    to    exactly    n,    deleQng/padding    as    needed        </td>
+</tr>
+<tr>
+<td>v.reserve(int)</td>
+<td>reset    capacity    to    max    (n,    oldCapacity)    </td>
+</tr>
+<tr>
+<td><strong>v.push_back(..)</strong></td>
+<td>add    elt    onto    the    end    of    v    (will    increment    capacity    if    neccessary)        </td>
+</tr>
+<tr>
+<td><strong>v.pop_back(..)</strong></td>
+<td>remove    last    element    from    end    of    v        </td>
+</tr>
+<tr>
+<td>v.front()</td>
+<td>returns    reference    to    first    element    of    v    (not    very    useful)    </td>
+</tr>
+<tr>
+<td><strong>v.back()</strong></td>
+<td>returns    reference    to    last    element    of    v        </td>
+</tr>
+<tr>
+<td>v.begin()</td>
+<td>returns    an    iterator    poinQng    to    first    element    of    v    </td>
+</tr>
+<tr>
+<td>v.end()</td>
+<td>returns    an    iterator    poinQng    aver    last    element    of    v        </td>
+</tr>
+</tbody>
+</table><p>*<strong>Bolded</strong> are REALLY important to know</p><p>This doesn’t even scrape the surface of how to use <code>vector&lt;T&gt;</code>, so I reccomend looking up the documentation / stackoverflow!</p><p>One last thing.<br>There are 2 main ways to iterate over a vector.<br>Look at this example code:</p><pre class="cpp hljs"><code class="cpp" data-origin="<pre><code class=&quot;cpp&quot;>    #include &amp;lt;iostream&amp;gt;
+    #include &amp;lt;string&amp;gt;
+    #include &amp;lt;vector&amp;gt;
+
+    using namespace std;
+
+    int main (int argc, char* argv[]) {
+        vector&amp;lt;string&amp;gt; v;
+
+        v.push_back(&quot;hello&quot;);
+        v.push_back(&quot;there&quot;);
+        v.push_back(&quot;world&quot;);
+
+        // It's fine to do this, for now
+        for (int i=0; i&amp;lt;v.size(); i++) {
+            cout &amp;lt;&amp;lt; &quot;v[&quot; &amp;lt;&amp;lt; i &amp;lt;&amp;lt; &quot;] = \&quot;&quot; &amp;lt;&amp;lt; v[i] &amp;lt;&amp;lt; &quot;\&quot;\n&quot;;
+        }
+
+        v.pop_back();
+        v.pop_back();
+        v.push_back(&quot;eh&quot;);
+
+        // This is more advanced; you don't have to do this yet
+        for (vector&amp;lt;string&amp;gt;::const_iterator ci = v.begin(); 
+             ci != v.end();
+             ci++) {
+            cout &amp;lt;&amp;lt; (*ci) &amp;lt;&amp;lt; endl;
+        }
+        return 0;
+    }
+</code></pre>">    <span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> &lt;iostream&gt;</span>
+    <span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> &lt;string&gt;</span>
+    <span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> &lt;vector&gt;</span>
+
+    <span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;
+
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span> <span class="hljs-params">(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span>* argv[])</span> </span>{
+        <span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">string</span>&gt; v;
+
+        v.push_back(<span class="hljs-string">"hello"</span>);
+        v.push_back(<span class="hljs-string">"there"</span>);
+        v.push_back(<span class="hljs-string">"world"</span>);
+
+        <span class="hljs-comment">// It's fine to do this, for now</span>
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>; i&lt;v.size(); i++) {
+            <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"v["</span> &lt;&lt; i &lt;&lt; <span class="hljs-string">"] = \""</span> &lt;&lt; v[i] &lt;&lt; <span class="hljs-string">"\"\n"</span>;
+        }
+
+        v.pop_back();
+        v.pop_back();
+        v.push_back(<span class="hljs-string">"eh"</span>);
+
+        <span class="hljs-comment">// This is more advanced; you don't have to do this yet</span>
+        <span class="hljs-keyword">for</span> (<span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">string</span>&gt;::const_iterator ci = v.begin(); 
+             ci != v.end();
+             ci++) {
+            <span class="hljs-built_in">cout</span> &lt;&lt; (*ci) &lt;&lt; endl;
+        }
+        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+    }
+</code></pre><p>If you’re anything like me, you’re probably a bit confused about approach 2.<br>Good thing we are going to learn about it later!<br>Just stick with approach 1 for now.</p><h3 id="unix-shell"><a name="unix-shell" href="#unix-shell"></a>Unix Shell</h3><p>We talked a bit about how to use the UNIX shell and it’s history.<br>I didn’t take notes, because in the words of Lex Murphy from Jurrassic Park:<br><a href="https://www.youtube.com/watch?v=dFUlAQZB9Ng"><em>“This is a UNIX System… I know this!”</em></a></p><p>This stuff is testable though, so brush up on your basic UNIX commands, command line useage, <strong>AND HISTORY OF UNIX</strong>.</p><p>The slides are good for this.<br>Here is a link:<br><a href="https://www.student.cs.uwaterloo.ca/~cs138/current/LectureSlides2016/02-UnixNotes.pdf">https://www.student.cs.uwaterloo.ca/~cs138/current/LectureSlides2016/02-UnixNotes.pdf</a></p><h2 id="lecture-3"><a name="lecture-3" href="#lecture-3"></a>Lecture 3</h2>
 
 <footer style="position:fixed; font-size:.8em; text-align:right; bottom:0px; margin-left:-25px; height:20px; width:100%;">generated by <a href="http://pad.haroopress.com" target="_blank">haroopad</a></footer>
 </body>
