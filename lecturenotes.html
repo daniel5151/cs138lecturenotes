@@ -515,55 +515,55 @@
 </thead>
 <tbody>
 <tr>
-<td><strong>v.at(i)</strong></td>
+<td><strong><code>v.at(i)</code></strong></td>
 <td>returns    i<sup>th</sup> element    (index    checked)        </td>
 </tr>
 <tr>
-<td><strong>v[i]</strong></td>
+<td><strong><code>v[i]</code></strong></td>
 <td>returns    i<sup>th</sup>    element    (index    unchecked)</td>
 </tr>
 <tr>
-<td><strong>v.size()</strong></td>
+<td><strong><code>v.size()</code></strong></td>
 <td>returns    #    of    elements    v    has        </td>
 </tr>
 <tr>
-<td>v.capacity()</td>
+<td><code>v.capacity()</code></td>
 <td>returns    #    of    elements    v    currently    has    space    for        </td>
 </tr>
 <tr>
-<td>v.empty()</td>
+<td><code>v.empty()</code></td>
 <td>returns    true    iff    v    has    no    elements        </td>
 </tr>
 <tr>
-<td>v.resize(int)</td>
+<td><code>v.resize(int)</code></td>
 <td>reset    size    to    exactly    n,    deleQng/padding    as    needed        </td>
 </tr>
 <tr>
-<td>v.reserve(int)</td>
+<td><code>v.reserve(int)</code></td>
 <td>reset    capacity    to    max    (n,    oldCapacity)    </td>
 </tr>
 <tr>
-<td><strong>v.push_back(..)</strong></td>
-<td>add    elt    onto    the    end    of    v    (will    increment    capacity    if    neccessary)        </td>
+<td><strong><code>v.push_back(..)</code></strong></td>
+<td>add    element    onto    the    end    of    v    (will    increment    capacity    if    neccessary)        </td>
 </tr>
 <tr>
-<td><strong>v.pop_back(..)</strong></td>
+<td><strong><code>v.pop_back(..)</code></strong></td>
 <td>remove    last    element    from    end    of    v        </td>
 </tr>
 <tr>
-<td>v.front()</td>
+<td><code>v.front()</code></td>
 <td>returns    reference    to    first    element    of    v    (not    very    useful)    </td>
 </tr>
 <tr>
-<td><strong>v.back()</strong></td>
+<td><strong><code>v.back()</code></strong></td>
 <td>returns    reference    to    last    element    of    v        </td>
 </tr>
 <tr>
-<td>v.begin()</td>
+<td><code>v.begin()</code></td>
 <td>returns    an    iterator    poinQng    to    first    element    of    v    </td>
 </tr>
 <tr>
-<td>v.end()</td>
+<td><code>v.end()</code></td>
 <td>returns    an    iterator    poinQng    aver    last    element    of    v        </td>
 </tr>
 </tbody>
@@ -627,7 +627,7 @@
         }
         <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
     }
-</code></pre><p>If you’re anything like me, you’re probably a bit confused about approach 2.<br>Good thing we are going to learn about it later!<br>Just stick with approach 1 for now.</p><h3 id="unix-shell"><a name="unix-shell" href="#unix-shell"></a>Unix Shell</h3><p>We talked a bit about how to use the UNIX shell and it’s history.<br>I didn’t take notes, because in the words of Lex Murphy from Jurrassic Park:<br><a href="https://www.youtube.com/watch?v=dFUlAQZB9Ng"><em>“This is a UNIX System… I know this!”</em></a></p><p>This stuff is testable though, so brush up on your basic UNIX commands, command line useage, <strong>AND HISTORY OF UNIX</strong>.</p><p>The slides are good for this.<br>Here is a link:<br><a href="https://www.student.cs.uwaterloo.ca/~cs138/current/LectureSlides2016/02-UnixNotes.pdf">https://www.student.cs.uwaterloo.ca/~cs138/current/LectureSlides2016/02-UnixNotes.pdf</a></p><h2 id="lecture-3"><a name="lecture-3" href="#lecture-3"></a>Lecture 3</h2>
+</code></pre><p>If you’re anything like me, you’re probably a bit confused about approach 2.<br>Good thing we are going to learn about it later!<br>Just stick with approach 1 for now.</p><h3 id="unix-shell"><a name="unix-shell" href="#unix-shell"></a>Unix Shell</h3><p>We talked a bit about how to use the UNIX shell and it’s history.<br>I didn’t take notes, because in the words of Lex Murphy from Jurrassic Park:<br><a href="https://www.youtube.com/watch?v=dFUlAQZB9Ng"><em>“This is a UNIX System… I know this!”</em></a></p><p>This stuff is testable though, so brush up on your basic UNIX commands, command line useage, <strong>AND HISTORY OF UNIX</strong>.</p><p>The slides are good for this.<br>Here is a link:<br><a href="https://www.student.cs.uwaterloo.ca/~cs138/current/LectureSlides2016/02-UnixNotes.pdf">https://www.student.cs.uwaterloo.ca/~cs138/current/LectureSlides2016/02-UnixNotes.pdf</a></p><h2 id="lecture-3"><a name="lecture-3" href="#lecture-3"></a>Lecture 3</h2><p>Jan 12th</p><h3 id="more-unix-shell-stuff"><a name="more-unix-shell-stuff" href="#more-unix-shell-stuff"></a>More Unix Shell stuff</h3><p>Just look at the powerpoint linked above. I din’t take notes. It’s waaaay too wordy.</p><h3 id="a-short-history-of-programming-languages"><a name="a-short-history-of-programming-languages" href="#a-short-history-of-programming-languages"></a>A short history of programming languages</h3><p>Just look at the powerpoint.<br><a href="https://www.student.cs.uwaterloo.ca/~cs138/current/LectureSlides2016/03-ProgLangNotes.pdf">https://www.student.cs.uwaterloo.ca/~cs138/current/LectureSlides2016/03-ProgLangNotes.pdf</a></p><h2 id="lecture-4"><a name="lecture-4" href="#lecture-4"></a>Lecture 4</h2>
 
 <footer style="position:fixed; font-size:.8em; text-align:right; bottom:0px; margin-left:-25px; height:20px; width:100%;">generated by <a href="http://pad.haroopress.com" target="_blank">haroopad</a></footer>
 </body>

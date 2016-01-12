@@ -408,19 +408,19 @@ Output:
 Here is a small table of important bits of the vector API:
 Operation | What it does
 ----------|------------
-**v.at(i)** 			 | returns	i^th^ element	(index	checked)		
-**v[i]** 				 | returns	i^th^	element	(index	unchecked)
-**v.size()**  | returns	#	of	elements	v	has		
-v.capacity() |  returns	#	of	elements	v	currently	has	space	for		
-v.empty() |  returns	true	iff	v	has	no	elements		
-v.resize(int)  | reset	size	to	exactly	n,	deleQng/padding	as	needed		
-v.reserve(int)  | reset	capacity	to	max	(n,	oldCapacity)	
-**v.push_back(..)**  | add	elt	onto	the	end	of	v	(will	increment	capacity	if	neccessary)		
-**v.pop_back(..)** |  remove	last	element	from	end	of	v		
-v.front() |  returns	reference	to	first	element	of	v	(not	very	useful)	
-**v.back()** |  returns	reference	to	last	element	of	v		
-v.begin()  | returns	an	iterator	poinQng	to	first	element	of	v	
-v.end() |  returns	an	iterator	poinQng	aver	last	element	of	v		
+**`v.at(i)`**			 | returns	i^th^ element	(index	checked)		
+**`v[i]`**				 | returns	i^th^	element	(index	unchecked)
+**`v.size()`**  | returns	#	of	elements	v	has		
+`v.capacity()` |  returns	#	of	elements	v	currently	has	space	for		
+`v.empty()` |  returns	true	iff	v	has	no	elements		
+`v.resize(int)`  | reset	size	to	exactly	n,	deleQng/padding	as	needed		
+`v.reserve(int)`  | reset	capacity	to	max	(n,	oldCapacity)	
+**`v.push_back(..)`**  | add	element	onto	the	end	of	v	(will	increment	capacity	if	neccessary)		
+**`v.pop_back(..)`** |  remove	last	element	from	end	of	v		
+`v.front()` |  returns	reference	to	first	element	of	v	(not	very	useful)	
+**`v.back()`** |  returns	reference	to	last	element	of	v		
+`v.begin()`  | returns	an	iterator	poinQng	to	first	element	of	v	
+`v.end()` |  returns	an	iterator	poinQng	aver	last	element	of	v		
 
 \***Bolded** are REALLY important to know
 
@@ -478,3 +478,13 @@ Here is a link:
 https://www.student.cs.uwaterloo.ca/~cs138/current/LectureSlides2016/02-UnixNotes.pdf
 
 ## Lecture 3
+Jan 12th
+
+### More Unix Shell stuff
+Just look at the powerpoint linked above. I din't take notes. It's waaaay too wordy.
+
+### A short history of programming languages
+Just look at the powerpoint.
+https://www.student.cs.uwaterloo.ca/~cs138/current/LectureSlides2016/03-ProgLangNotes.pdf
+
+## Lecture 4
