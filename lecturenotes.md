@@ -466,25 +466,14 @@ If you're anything like me, you're probably a bit confused about approach 2.
 Good thing we are going to learn about it later!
 Just stick with approach 1 for now.
 
-### Unix Shell
-We talked a bit about how to use the UNIX shell and it's history.
-I didn't take notes, because in the words of Lex Murphy from Jurrassic Park:
-<a href="https://www.youtube.com/watch?v=dFUlAQZB9Ng">*"This is a UNIX System... I know this!"*</a>
+## An Update
+Looks like CS-138 is a very different course than CS-137 with respect to presentation.
+Mike Godfrey posts all the lectures as powerpoints on the course website, and they have all of the material, so I'm not going to take any more notes for the time being.
 
-This stuff is testable though, so brush up on your basic UNIX commands, command line useage, **AND HISTORY OF UNIX**.
+Here is the link to the course website:
+https://www.student.cs.uwaterloo.ca/~cs138/
 
-The slides are good for this.
-Here is a link:
-https://www.student.cs.uwaterloo.ca/~cs138/current/LectureSlides2016/02-UnixNotes.pdf
+Who knows, maybe i'll find some time to work on these notes some more sometime in the future, but for now, I'm done.
 
-## Lecture 3
-Jan 12th
-
-### More Unix Shell stuff
-Just look at the powerpoint linked above. I din't take notes. It's waaaay too wordy.
-
-### A short history of programming languages
-Just look at the powerpoint.
-https://www.student.cs.uwaterloo.ca/~cs138/current/LectureSlides2016/03-ProgLangNotes.pdf
-
-## Lecture 4
+Yours,
+\- Daniel Prilik
